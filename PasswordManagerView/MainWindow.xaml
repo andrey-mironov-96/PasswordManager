@@ -1,0 +1,36 @@
+﻿<Window x:Class="PasswordManagerView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PasswordManagerView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        >
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <Menu Height="25" VerticalAlignment="Top" DockPanel.Dock="Top" >
+                <MenuItem Header="Файл">
+                    <MenuItem Header="Создать" Click="Create_Click"/>
+                    <MenuItem Header="Экспортировать"/>
+                </MenuItem>
+                <MenuItem Header="Вид">
+                    <MenuItem Header="Столбцы"/>
+                    <MenuItem Header="Шрифт"/>
+                </MenuItem>
+            </Menu>
+            <StatusBar VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
+                <StatusBarItem Content="Executuin"/>
+            </StatusBar>
+            <DataGrid x:Name="tablePasswordManager">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Login" Width="*"/>
+                    <DataGridTextColumn Header="Type" Width="*"/>
+                    <DataGridTextColumn Header="Resource" Width="*"/>
+                    <DataGridTextColumn Header="Password" Width="*"/>
+                    <DataGridTextColumn Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Window>
