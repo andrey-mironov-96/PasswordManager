@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MediatR;
+using PasswordManager.Application.Feature.UserDatas.Commands.CreateUserData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,32 @@ namespace PasswordManagerView
     /// </summary>
     public partial class WindowCreatingPassword : Window
     {
-        public WindowCreatingPassword()
+        private readonly IMediator mediator;
+
+        public WindowCreatingPassword(IMediator mediator)
         {
             InitializeComponent();
+            this.mediator = mediator;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CreateUserDataCommand command = new()
+                {
+                    Login = "Vasya",
+                    Password = "123",
+                    Resource = "res1",
+                    Type = "type1"
+                };
+                mediator.Send(command);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
     }
 }
